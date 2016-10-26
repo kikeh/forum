@@ -1,0 +1,35 @@
+# -- Symfony2 -----------------------------------------
+/app/config/parameters.yml
+/build/
+/phpunit.xml
+/var/*
+!/var/cache
+/var/cache/*
+!var/cache/.gitkeep
+!/var/logs
+/var/logs/*
+!var/logs/.gitkeep
+!/var/sessions
+/var/sessions/*
+!var/sessions/.gitkeep
+!var/SymfonyRequirements.php
+/vendor/
+var/bootstrap.php.cache
+var/bootstrap_cache.php.cache
+web/bundles/*
+web/css/*
+web/js/*
+web/uploads/*
+
+# -- Composer -----------------------------------------
+composer.phar
+
+# -- PHPUnit ------------------------------------------
+app/phpunit.xml
+
+# -- Editor -----------------------------------------
+# phpstorm
+.idea/
+../.idea/
+# emacs
+*.*~

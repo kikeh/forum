@@ -1,0 +1,3 @@
+forum_forum_homepage:
+    path:     /
+    defaults: { _controller: ForumForumBundle:Default:index }
