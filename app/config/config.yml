@@ -67,3 +67,30 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+services:
+    fos_user.doctrine_registry:
+        alias: doctrine_mongodb
+    app.twig.extension.date:
+        class:        Twig_Extensions_Extension_Date
+        tags:
+             - { name: 'twig.extension' }
+
+doctrine_mongodb:
+    default_commit_options: ~
+    connections:
+        default:
+            server: mongodb://localhost:27017/forum
+    default_database: forum
+    document_managers:
+        default:
+            auto_mapping: true
+
+stof_doctrine_extensions:
+    default_locale: %locale%
+    translation_fallback: true
+    mongodb:
+        default:
+            translatable: true
+            timestampable: true
+            sluggable: true

@@ -1,3 +1,7 @@
 forum_forum_homepage:
     path:     /
     defaults: { _controller: ForumForumBundle:Default:index }
+
+upload_image:
+    path:     /upload
+    defaults: { _controller: ForumForumBundle:Default:upload }
