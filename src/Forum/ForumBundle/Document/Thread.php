@@ -40,6 +40,23 @@ class Thread
     protected $updatedAt;
 
     /**
+     *
+     * @MongoDB\ReferenceMany(targetDocument="Forum\ForumBundle\Document\Post", mappedBy="thread", cascade={"remove"})
+     */
+    protected $posts;
+
+    /**
+     * Thread constructor.
+     *
+     * @param $title
+     */
+    public function __construct($title)
+    {
+        $this->title = $title;
+        $this->posts = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
      * Get id
      *
      * @return id $id
@@ -113,5 +130,35 @@ class Thread
     public function getUpdatedAt()
     {
         return $this->updatedAt;
+    }
+    
+    /**
+     * Add post
+     *
+     * @param \Forum\ForumBundle\Document\Post $post
+     */
+    public function addPost(Post $post)
+    {
+        $this->posts[] = $post;
+    }
+
+    /**
+     * Remove post
+     *
+     * @param \Forum\ForumBundle\Document\Post $post
+     */
+    public function removePost(Post $post)
+    {
+        $this->posts->removeElement($post);
+    }
+
+    /**
+     * Get posts
+     *
+     * @return \Doctrine\Common\Collections\Collection $posts
+     */
+    public function getPosts()
+    {
+        return $this->posts;
     }
 }

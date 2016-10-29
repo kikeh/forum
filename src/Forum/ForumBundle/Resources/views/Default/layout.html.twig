@@ -4,29 +4,33 @@
     <div id="app">
         <div class="top-bar">
             <div class="row">
-                <div class="col-md-4 text-center">Posts: </div>
+                <div class="col-md-4 text-center">Posts: {{ posts.count }}</div>
                 <div class="col-md-4 text-center">
                     <button class="btn btn-md btn-primary">Export all</button>
                 </div>
-                <div class="col-md-4 text-center">Views: </div>
+                <div class="col-md-4 text-center">Views: {{ totalViews }}</div>
             </div>
         </div>
         <div class="content">
             <div class="reply-box row">
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
-                    <form class="reply-form">
-                        <input type="text" class="form-control" placeholder="title" name="Title">
-                        <input type="file" class="form-control">
-                        <button class="btn btn-md btn-success">Upload</button>
+                    <form id="reply-form">
+                        <input type="text" class="form-control" placeholder="title" name="Title" id="reply-title">
+                        <input type="file" class="form-control" id="reply-file">
                     </form>
+                    <button class="btn btn-md btn-success" id="upload">Upload</button>
                 </div>
                 <div class="col-md-2"></div>
             </div>
             <div class="posts-box">
+                <div class="thread-box text-center" id="{{ thread.id }}">
+                    <h1>{{ thread.title }}</h1>
+                </div>
                 {% for post in posts %}
                     <div class="post text-center">
                         <div class="post-image">
+                            <img src="{{ post.imageUrl }}" />
                         </div>
                         <h5>{{ post.title }}</h5>
                     </div>

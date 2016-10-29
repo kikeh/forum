@@ -1,4 +1,8 @@
 services:
-#    forum_forum.example:
-#        class: Forum\ForumBundle\Example
-#        arguments: ["@service_id", "plain_value", %parameter%]
+    forum.post.manager:
+        class: Forum\ForumBundle\Manager\PostManager
+        arguments: [@service_container]
+
+    forum.thread.manager:
+        class: Forum\ForumBundle\Manager\ThreadManager
+        arguments: [@service_container]

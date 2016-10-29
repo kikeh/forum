@@ -23,7 +23,13 @@ class Post
      * @MongoDB\String
      * @var string
      */
-    protected $title;
+    protected $title = '';
+
+    /**
+     * @MongoDB\Int
+     * @var int
+     */
+    protected $views = 0;
 
     /**
      * @MongoDB\String
@@ -44,6 +50,11 @@ class Post
      * @var date
      */
     protected $updatedAt;
+
+    /**
+     * @MongoDB\ReferenceOne(targetDocument="Forum\ForumBundle\Document\Thread")
+     */
+    protected $thread;
 
     /**
      * @MongoDB\String
@@ -193,5 +204,49 @@ class Post
     public function getPath()
     {
         return $this->path;
+    }
+
+    /**
+     * Set thread
+     *
+     * @param \Forum\ForumBundle\Document\Thread $thread
+     * @return self
+     */
+    public function setThread(Thread $thread)
+    {
+        $this->thread = $thread;
+        return $this;
+    }
+
+    /**
+     * Get thread
+     *
+     * @return \Forum\ForumBundle\Document\Thread $thread
+     */
+    public function getThread()
+    {
+        return $this->thread;
+    }
+
+    /**
+     * Set views
+     *
+     * @param int $views
+     * @return self
+     */
+    public function setViews($views)
+    {
+        $this->views = $views;
+        return $this;
+    }
+
+    /**
+     * Get views
+     *
+     * @return int $views
+     */
+    public function getViews()
+    {
+        return $this->views;
     }
 }

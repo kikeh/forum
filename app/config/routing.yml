@@ -5,3 +5,12 @@ forum_forum:
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+
+create_post:
+    pattern: /create
+    defaults: { _controller: ForumForumBundle:Default:create }
+    options:
+        expose: true
